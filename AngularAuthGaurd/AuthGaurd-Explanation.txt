@@ -1,0 +1,18 @@
+1. Define the Page Layout in App-Component HTML
+    * Define Title 
+    * Define Buttons --> LogIn and LogOut
+    		+ When LogIn Button is clicked , Boolean message -> True is send to Data Service 
+ 		+ When LogOut Button is clicked , Use Router to navigate to Home Page
+    * Define Nav Bar Elements with Links to the Pages 
+                + Home Page
+		+ Contact Us Page ( UnProtected ) 
+		+ About Us Page ( Protected ) 
+    * Define Router Outlet Tag 
+2.  Generate a Data Service to pass boolean data from one component to other 
+3.  Generate Auth Gaurd Component with CanActivate Status 
+	* Add the Router and the Data Service in constructor as Dependency Injector
+	* Overwrite the CanActivate function for the logic to return true or false
+		+  if Subscribed message from the Data Service is true , then CanActivate function return True
+		+  Else , then CanActivate function return False
+4.  Add the AuthGaurd and DataService to the Providers List to App Module
+5.  Add the canActivate tag with Auth-Gayrd name to the path Component on which it is needed in routing section of App-Routing Module 
