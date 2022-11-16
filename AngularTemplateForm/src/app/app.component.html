@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="container">
+    {{title}}
+  </div> 
+  <div class="container">
+    <br /><br /><br />
+    <form #loginForm="ngForm" (ngSubmit)="logUserCredentials(loginForm.value)">
+      <input type="text" name="username" required placeholder="Enter User Name" (change)="logUserName(loginForm.value.username)" #username="ngModel" ngModel/>
+        &nbsp; &nbsp; &nbsp;
+        <span *ngIf="username.invalid && username.touched" style="color: blue;">Please enter a UserName</span>
+      <br /><br /><br />
+      <input type="text" name="password" required placeholder="Enter Password" (change)="logPassword(loginForm.value.password)"  #password="ngModel" ngModel/>
+        &nbsp; &nbsp; &nbsp;
+        <span *ngIf="password.invalid && password.touched" style="color: blue;">Please enter a Password</span>
+      <br /><br /><br />
+      <button type="submit" [disabled]="loginForm.invalid">Submit</button> &nbsp; &nbsp; &nbsp;
+      <button type="button" [disabled]="loginForm.valid" (click)="logUserCredentials(loginForm.value)">Click</button>
+    </form>
+    <br /><br /><br />
+    <div class="container" style="color: green;">
+      {{message}}
+    </div>   
+  </div> 
+  
+ 
